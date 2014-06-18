@@ -43,11 +43,7 @@ class Jbuilder
       else
         # json.age 32
         # { "age": 32 }
-        if value.respond_to?('gsub')
-          ::CGI::escapeHTML(value)
-        else
-          value
-        end
+        value
       end
     elsif _mapable_arguments?(value, *args)
       # json.comments @post.comments, :content, :created_at
