@@ -276,7 +276,7 @@ class Jbuilder
   def _set_value(key, value)
     raise NullError.build(key) if @attributes.nil?
     return if @ignore_nil && value.nil?
-    _write key, value
+    _write key, (::CGI::escapeHTML(value) rescue value)
   end
 
   def _map_collection(collection)
